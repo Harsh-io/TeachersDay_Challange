@@ -1,0 +1,64 @@
+## Approac:
+stack-based approach
+Stacks follow LIFO which is perfect for matching opening and closing brackets
+
+## Explanation
+Input a string s (e.g., "{[()]}")
+1. Use a stack to keep track of opening brackets.
+Whenever you see an opening bracket ((, {, [), push it to the stack.
+When you see a closing bracket (), }, ]):
+If the stack is empty → it means there's no matching opening → ❌ invalid
+Pop the top of the stack and check if it matches:
+) should match (
+} should match {
+] should match [
+If it doesn’t match → ❌ invalid
+2. After processing If the stack is empty✅ valid
+If not empty → ❌ invalid
+
+
+## Psuedo Code:
+
+Function isValid(s: string) -> boolean
+    Create an empty stack
+
+    For each character ch in s:
+        If ch is '(', '{', or '[':
+            Push ch to stack
+        Else if ch is ')', '}', or ']':
+            If stack is empty:
+                Return false  // unmatched closing bracket
+            top = Pop from stack
+            If ch and top are not a matching pair:
+                Return false  // mismatched bracket
+
+    If stack is empty:
+        Return true  // all brackets matched
+    Else:
+        Return false  // some unmatched opening brackets
+
+## Code:
+import java.util.Stack;
+
+class Solution {
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        
+        for (char ch : s.toCharArray()) {
+            if (ch == '(' || ch == '{' || ch == '[') {
+                stack.push(ch);
+            } else {
+                if (stack.isEmpty()) return false;
+                char top = stack.pop();
+                if ((ch == ')' && top != '(') ||
+                    (ch == '}' && top != '{') ||
+                    (ch == ']' && top != '[')) {
+                    return false;
+                }
+            }
+        }
+        
+        return stack.isEmpty();
+    }
+}
+
