@@ -1,0 +1,30 @@
+//Psuedo Code:
+// 1. input a string
+// 2. Convert string to lowercase 
+// 3. Create a StringBuilder to build the result string.
+// 4. Loop through each char in the string:    If the char is not  (a, e, i, o, u ,y) append "." and char to result
+// 5. Print the result
+
+import java.util.*;
+public class main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a = sc.nextLine();
+
+        String str = a.toLowerCase();
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u' && ch != 'y') {
+                result.append(".").append(ch);
+            }
+        }
+
+        String newStr = result.toString();
+        System.out.println(result);
+
+        sc.close();
+    }
+}
