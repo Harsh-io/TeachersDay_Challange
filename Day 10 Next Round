@@ -1,0 +1,35 @@
+// Psuedo Code:
+// take input n and k
+// create a list (score) and take input n times
+// if n = 8 take 8 input : example  [10 9 8 7 7 7 5 5] 
+// now traverse from  score(0) to score(n) for every value < = score(k) : count++
+// print count 
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+
+        int[] scores = new int[n];
+        
+        for(int i = 0; i < n; i++) {
+            scores[i] = sc.nextInt();
+        }
+
+        int kthscore = scores[k - 1];
+        int count = 0;
+        for(int i = 0; i < n; i++) {
+            if(scores[i] >= kthscore && scores[i] > 0) {
+                count++;
+            }
+        }
+
+        System.out.println(count);
+        sc.close();
+    }
+}
+
+
