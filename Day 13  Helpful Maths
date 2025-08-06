@@ -1,0 +1,33 @@
+//psuedo code:
+// 1. Read a string of numbers separated by '+'.
+// 2. Split the string into an array of numbers.
+// 3. Convert the string array to an integer array.
+// 4. Sort the integer array.
+
+import java.util.*;
+public class D13 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+
+        String[] numbers = input.split("\\+");
+
+        int[] nums = new int[numbers.length];
+        for (int i = 0; i < numbers.length; i++) {
+            nums[i] = Integer.parseInt(numbers[i]);
+        }
+
+        Arrays.sort(nums);
+
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < nums.length; i++) {
+            result.append(nums[i]);
+            if (i < nums.length - 1) {
+                result.append("+");
+            }
+        }
+
+        System.out.println(result.toString());
+        sc.close();
+    }
+}
