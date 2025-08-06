@@ -1,0 +1,30 @@
+//Psuedocode:
+// input 2 strings : 1str, 2str
+// Convert both strings to lowercase   
+// Compare the strings lexicographically
+// Print -1 if 1str < 2str : 1 if 1str > 2str : 0 if both are equal
+
+import java.util.*;
+
+public class d12 {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str1 = sc.nextLine();
+        String str2 = sc.nextLine();
+
+        String lowerStr1 = str1.toLowerCase();
+        String lowerStr2 = str2.toLowerCase();
+
+        int Compare = lowerStr1.compareTo(lowerStr2);
+
+        if (Compare < 0) {
+            System.out.println("-1");
+        } else if (Compare > 0) {
+            System.out.println("1");
+        } else {
+            System.out.println("0");
+        }
+        sc.close();
+    }
+}
