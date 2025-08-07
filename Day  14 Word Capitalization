@@ -1,0 +1,25 @@
+//psuedo code:
+// step 1: Check if the word is null or empty
+// step 3: Capitalize the first character of the word
+// step 4: Concatenate the capitalized first character with the rest of the word
+// step 5: Return the new word
+
+import java.util.Scanner;
+
+public class WordCapitalization {
+
+    public static String capitalizeWord(String word) {
+        if (word == null || word.isEmpty()) {
+            return word;
+        }
+
+        return Character.toUpperCase(word.charAt(0)) + word.substring(1);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String word = scanner.nextLine();
+        System.out.println(capitalizeWord(word));
+        scanner.close();
+    }
+}
